@@ -27,7 +27,13 @@ public class ClassList {
 	}
 
 	public ClassList(String className, String instructorId) {
+		super();
 		this.className = className;
+		this.instructorId = instructorId;
+	}
+	
+	public ClassList(String instructorId) {
+		super();
 		this.instructorId = instructorId;
 	}
 

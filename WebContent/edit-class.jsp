@@ -9,12 +9,13 @@
 <title>MDC</title>
 </head>
 <body>
-<h2>View, Add and Edit class lists</h2>
+<h2>Edit Classes</h2>
 	<form action = "editClassServlet" method = "post">
 	Class-Name: <input type = "text" name = "className" value = "${classToEdit.className}">
 	Instructor-Id: <input type = "text" name = "instructorId" value = "${classToEdit.instructorId}">
 	<input type = "hidden" name = "classId" value ="${classToEdit.classId}">
 	<input type = "submit" value= "Save Edited class">
  	</form>
+ 	<a href = "index.html">Go add new classes instead.</a>
 </body>
 </html>

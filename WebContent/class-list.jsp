@@ -8,12 +8,12 @@
 <title>DMC</title>
 </head>
 <body>
-<h2>You can Add View Delete Classes on the list</h2>
+<h2>You can View, Add, or Delete Classes on the list</h2>
 	<form method="post" action ="navigationServlet">
-	 <tr>
-    <th> <strong>&nbsp;&nbsp;Class-Name&nbsp;&nbsp;</strong></th>
-    <th> <strong>Instructor-Id</strong></th>
-  </tr>
+	<tr>
+    	<th> <strong>&nbsp;&nbsp;Class-Name&nbsp;&nbsp;</strong></th>
+    	<th> <strong>Instructor-Id</strong></th>
+  	</tr>
 	<table>
 	<c:forEach items="${requestScope.allClass}" var="currentClass">
 		<tr>
