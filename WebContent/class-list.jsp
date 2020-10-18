@@ -24,9 +24,9 @@
 	</c:forEach>
 	</table>
 	<br>
-	<input type = "submit" value = "edit" name="doThisToItem">
-	<input type = "submit" value = "delete" name="doThisToItem">
-	<input type = "submit" value = "add" name="doThisToItem">
+	<input type = "submit" value = "edit" name="doThisToClass">
+	<input type = "submit" value = "delete" name="doThisToClass">
+	<input type = "submit" value = "add" name="doThisToClass">
 	</form>
 </body>
 </html>
