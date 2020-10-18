@@ -43,7 +43,7 @@ public class NavigationServlet extends HttpServlet {
 
 		// doGet(request, response);
 
-		String act = request.getParameter("doThisToClass");
+		String act = request.getParameter("doThisToItem");
 		String path = "/viewAllClassServlet";
 
 		ClassHelper dao = new ClassHelper();
