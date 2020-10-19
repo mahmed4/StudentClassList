@@ -33,7 +33,7 @@ public class ClassListDetailsHelper {
 		TypedQuery<ClassDetails> typedQuery = em
 				.createQuery("select detail from ClassDetails detail where detail.id = :selectedId", ClassDetails.class);
 		// Substitute parameter with actual data from the toDelete item
-		typedQuery.setParameter("selectedId", toDelete.getId());
+		typedQuery.setParameter("selectedId", toDelete.getSemesterId());
 
 		// we only want one result
 		typedQuery.setMaxResults(1);

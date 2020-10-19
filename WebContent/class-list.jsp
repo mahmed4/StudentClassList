@@ -8,7 +8,7 @@
 <title>DMC</title>
 </head>
 <body>
-	<h2>You can Add View Delete Classes on the list</h2>
+	<h2>You can Add, View, or Delete Classes</h2>
 	<form method="post" action="navigationServlet">
 		<tr>
 			<th><strong>&nbsp;&nbsp;&nbsp;&nbsp;Class-Name&nbsp;&nbsp;&nbsp;&nbsp;</strong></th>

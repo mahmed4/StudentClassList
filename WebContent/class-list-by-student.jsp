@@ -33,12 +33,11 @@
 			</c:forEach>
 		</table>
 		</br>
-		<input type="submit" value="edit" name="doThisToList"> <input
-			type="submit" value="delete" name="doThisToList"> <input
-			type="submit" value="add" name="doThisToList">
+		<input type="submit" value="edit" name="doThisToList"> 
+		<input type="submit" value="delete" name="doThisToList"> 
+		<input type="submit" value="add a class" name="doThisToList">
 	</form>
 	 <br />
 	<a href="addClassForSemesterServlet">Create a new List</a> <br />
-	<a href="index.html">Insert a new item</a>
 </body>
 </html>

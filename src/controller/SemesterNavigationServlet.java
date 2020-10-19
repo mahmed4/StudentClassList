@@ -73,8 +73,8 @@ public class SemesterNavigationServlet extends HttpServlet {
 			} catch (NumberFormatException e) {
 				getServletContext().getRequestDispatcher("/viewAllStudentClassListServlet").forward(request, response);
 			}
-		} else if (act.equals("add")) {
-			getServletContext().getRequestDispatcher("/new-semester.jsp").forward(request, response);
+		} else if (act.equals("add a class")) {
+			getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 		}
 	}
 

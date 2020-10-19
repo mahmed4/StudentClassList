@@ -60,7 +60,7 @@ public class createNewClassListServlet extends HttpServlet {
 		
 		ClassList student = new ClassList(instructorId);
 		ClassDetails sld = new ClassDetails(listName, ld, student);
-		sld.setListOfItems(selectedClassesInList);
+		sld.setListOfClass(selectedClassesInList);
 		ClassListDetailsHelper slh = new ClassListDetailsHelper();
 		slh.insertNewClassListDetails(sld);
 		
