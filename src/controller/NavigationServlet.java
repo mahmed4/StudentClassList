@@ -43,7 +43,7 @@ public class NavigationServlet extends HttpServlet {
 
 		// doGet(request, response);
 
-		String act = request.getParameter("doThisToClass");
+		String act = request.getParameter("doThisToItem");
 		String path = "/viewAllClassServlet";
 
 		ClassHelper dao = new ClassHelper();
@@ -68,9 +68,11 @@ public class NavigationServlet extends HttpServlet {
 			}
 		} else if (act.equals("add")) {
 
-			getServletContext().getRequestDispatcher("/new-list.jsp").forward(request, response);
+			path = "/index.html";
 
 		}
+
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 }

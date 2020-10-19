@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,96 +16,98 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.TypedQuery;
 
 @Entity
-@Table(name="class_details")
+@Table(name = "class_details")
 public class ClassDetails {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="SEMESTER_ID")
-	private int id;
-	@Column(name="SEMESTER_NAME")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "SEMESTER_ID")
+	private int semesterId;
+	@Column(name = "SEMESTER_NAME")
 	private String semesterName;
-	@Column(name="START_DATE")
+	@Column(name = "START_DATE")
 	private LocalDate startDate;
-	@ManyToOne (cascade=CascadeType.PERSIST)
-	@JoinColumn(name="STUDENT_ID")
-	private ClassList classList;
-	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	@JoinTable
-	  (
-	      name="CLASS_LIST",
-	      joinColumns={ @JoinColumn(name="CLASS_ID", referencedColumnName="CLASS_ID") },
-	      inverseJoinColumns={ @JoinColumn(name="INSTRUCTOR_ID", referencedColumnName="INSTRUCTOR_ID", unique=true) }
-	  )
-    private List<ClassList> listOfClasses;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "STUDENT_ID")
+	private StudentList student;
+	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinTable(name = "student_on_list", joinColumns = {
+			@JoinColumn(name = "SEMESTER_ID", referencedColumnName = "SEMESTER_ID") }, inverseJoinColumns = {
+					@JoinColumn(name = "ID", referencedColumnName = "CLASS_ID", unique = true) })
+	private List<ClassList> listOfClass;
 
-	
 	public ClassDetails() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-	
-	public ClassDetails(int id, String semesterName, LocalDate startDate, ClassList classList, List<ClassList> listOfClasses) {
-		super();
-		this.id = id;
+
+	public ClassDetails(int semesterId, String semesterName, LocalDate startDate, StudentList student, List<ClassList> listOfClass) {
+		this.semesterId = semesterId;
 		this.semesterName = semesterName;
 		this.startDate = startDate;
-		this.classList = classList;
-		this.listOfClasses = listOfClasses;
+		this.student = student;
+		this.listOfClass = listOfClass;
 	}
 
-	public ClassDetails(String listName, LocalDate tripDate, ClassList classList, List<ClassList> listOfClasses) {
-		super();
-		this.semesterName = listName;
-		this.startDate = tripDate;
-		this.classList = classList;
-		this.listOfClasses = listOfClasses;
+	public ClassDetails(String semesterName, LocalDate startDate, StudentList student, List<ClassList> listOfClass) {
+		this.semesterName = semesterName;
+		this.startDate = startDate;
+		this.student = student;
+		this.listOfClass = listOfClass;
+	}
+	
+	public ClassDetails(String semesterName, LocalDate startDate, StudentList student) {
+		this.semesterName = semesterName;
+		this.startDate = startDate;
+		this.student = student;
 	}
 
-	public ClassDetails(String listName, LocalDate tripDate, ClassList classList) {
-		super();
-		this.semesterName = listName;
-		this.startDate = tripDate;
-		this.classList = classList;
+	public int getSemesterId() {
+		return semesterId;
 	}
 
-	public int getId() {
-		return id;
+	public void setSemesterId(int semesterId) {
+		this.semesterId = semesterId;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getListName() {
+
+	public String getSemesterName() {
 		return semesterName;
 	}
-	public void setListName(String listName) {
-		this.semesterName = listName;
+
+	public void setSemesterName(String semesterName) {
+		this.semesterName = semesterName;
 	}
-	public LocalDate getTripDate() {
+
+	public LocalDate getStartDate() {
 		return startDate;
 	}
-	public void setTripDate(LocalDate tripDate) {
-		this.startDate = tripDate;
-	}
-	public ClassList getClassList() {
-		return classList;
-	}
-	public void setShopper(ClassList classList) {
-		this.classList = classList;
+
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
 	}
 
-	public List<ClassList> getListOfClasses() {
-		return listOfClasses;
+	public StudentList getStudent() {
+		return student;
 	}
 
-	public void setListOfItems(List<ClassList> listOfClasses) {
-		this.listOfClasses = listOfClasses;
+	public void setStudent(StudentList student) {
+		this.student = student;
+	}
+
+	public List<ClassList> getListOfClass() {
+		return listOfClass;
+	}
+
+	public void setListOfClass(List<ClassList> listOfClass) {
+		this.listOfClass = listOfClass;
 	}
 
 	@Override
 	public String toString() {
-		return "ClassListDetails [id=" + id + ", SemesterName=" + semesterName + ", startDate=" + startDate + ", classlist="
-				+ classList + ", listOfClasses=" + listOfClasses + "]";
+		return "ClassDetails [semesterId=" + semesterId + ", semesterName=" + semesterName + ", startDate=" + startDate
+				+ ", student=" + student + ", listOfClass=" + listOfClass + "]";
 	}
-	
+
 }

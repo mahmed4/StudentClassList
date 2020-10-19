@@ -101,7 +101,7 @@ public class Runner {
 			System.out.println("*  2 -- Edit a Class");
 			System.out.println("*  3 -- Delete a Class");
 			System.out.println("*  4 -- View all the Classes");
-			System.out.println("*  5 -- Exit the awesome Class Registration program");
+			System.out.println("*  5 -- Exit the awesome Car program");
 			System.out.print("*  Your selection: ");
 			int selection = in.nextInt();
 			in.nextLine();

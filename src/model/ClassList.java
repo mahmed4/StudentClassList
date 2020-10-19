@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "student.class_list")
+@Table(name = "class_list")
 public class ClassList {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,13 +27,7 @@ public class ClassList {
 	}
 
 	public ClassList(String className, String instructorId) {
-		super();
 		this.className = className;
-		this.instructorId = instructorId;
-	}
-	
-	public ClassList(String instructorId) {
-		super();
 		this.instructorId = instructorId;
 	}
 
